@@ -1,0 +1,56 @@
+{
+  "name": "ai-sdk-provider-flowspeech",
+  "version": "0.1.0",
+  "description": "FlowSpeech text-to-speech provider for the Vercel AI SDK.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run typecheck && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waeckerlinfederowicz66-sketch/ai-sdk-provider-flowspeech.git"
+  },
+  "homepage": "https://flowspeech.io/",
+  "bugs": {
+    "url": "https://github.com/waeckerlinfederowicz66-sketch/ai-sdk-provider-flowspeech/issues"
+  },
+  "keywords": [
+    "ai-sdk",
+    "vercel-ai-sdk",
+    "flowspeech",
+    "text-to-speech",
+    "tts",
+    "speech"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ai-sdk/provider": "^4.0.7",
+    "@ai-sdk/provider-utils": "^5.0.27"
+  },
+  "devDependencies": {
+    "ai": "^7.0.68",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
