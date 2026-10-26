@@ -1,3 +1,4 @@
+export * from './flowspeech-client.js'
 export {
   createFlowSpeech,
   flowSpeech,
