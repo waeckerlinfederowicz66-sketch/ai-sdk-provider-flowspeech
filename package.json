@@ -14,7 +14,10 @@
     }
   },
   "files": [
-    "dist",
+    "dist/*.js",
+    "dist/*.d.ts",
+    "dist/*.js.map",
+    "dist/*.d.ts.map",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"

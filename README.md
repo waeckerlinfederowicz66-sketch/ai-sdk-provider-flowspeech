@@ -1,5 +1,9 @@
 # FlowSpeech Provider for the AI SDK
 
+## Unreleased Security Follow-up
+
+HTTP and terminal-job errors use fixed local messages. Bounded diagnostic tokens exclude the configured API key and API-only header values; remote messages and unknown error fields are not returned. An interrupted body retains the received HTTP status and Retry-After; permanent HTTP failures never retry. Errors may expose retryAfterMs alongside validated recovery IDs.
+
 A server-side FlowSpeech public API v1 adapter for the AI SDK `SpeechModelV4` contract. `generateSpeech` resolves after submission, polling and audio download, returning WAV bytes.
 
 ## Local installation
