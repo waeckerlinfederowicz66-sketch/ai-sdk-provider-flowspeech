@@ -1,14 +1,20 @@
 # FlowSpeech Provider for the AI SDK
 
-## Unreleased Security Follow-up
+## 0.2.1 Security Update
 
 HTTP and terminal-job errors use fixed local messages. Bounded diagnostic tokens exclude the configured API key and API-only header values; remote messages and unknown error fields are not returned. An interrupted body retains the received HTTP status and Retry-After; permanent HTTP failures never retry. Errors may expose retryAfterMs alongside validated recovery IDs.
 
 A server-side FlowSpeech public API v1 adapter for the AI SDK `SpeechModelV4` contract. `generateSpeech` resolves after submission, polling and audio download, returning WAV bytes.
 
-## Local installation
+## Installation
 
-Requires Node.js 22 or newer. Until a registry release is verified, build the local checkout:
+Requires Node.js 22 or newer. Install the security update:
+
+```bash
+npm install ai ai-sdk-provider-flowspeech@0.2.1
+```
+
+To build and verify a source checkout:
 
 ```bash
 npm ci --ignore-scripts
@@ -18,7 +24,7 @@ npm run build
 npm run test:dist
 npm pack
 # From your application:
-npm install ai /path/to/ai-sdk-provider-flowspeech-0.2.0.tgz
+npm install ai /path/to/ai-sdk-provider-flowspeech-0.2.1.tgz
 ```
 
 Set `FLOWSPEECH_API_KEY` in the server environment. Never put it in browser code or commit it.
@@ -116,7 +122,7 @@ Full API contract: [FlowSpeech public API](https://flowspeech.io/docs/public-api
 
 ## Development and release status
 
-These are local 0.2.0 release candidates. The npm-name audit on 2026-10-26 returned 404; do not assume an earlier npm release exists or claim this version is published. The GitHub repository exists independently of npm availability. Publication is a separate maintainer/coordinator action.
+Version 0.2.0 is the previous published API v1 release. Version 0.2.1 adds the safety fixes described above. Historical registry metadata and old installed versions are not changed by upgrading the source repository.
 
 Install locked dependencies, then run the package checks and pack locally. Tests use only fake transports and synthetic WAV data; they do not spend generation credits. See `RELEASE_CHECKLIST.md` for maintainer release steps.
 
